@@ -1,0 +1,37 @@
+3.60
+A. %rdi holds x, %esi holds n, %eax holds result, %rdx holds mask.
+B. The initial value of result is 0, and the initial value of mask is 1.
+C. That mask !=0
+D. It is left shifted, mask = mask << n
+E. update |= mask & x
+F.
+long loop (long x, long n) {
+     long result = 0;
+     long mask;
+     for (mask = 1; mask !=0; mask = mask << n){
+     	 result |= mask & x;
+     }
+     return result;
+}
+
+3.63
+long switch_prob(long x, long n) {
+     long result = x;
+     switch(n) {
+	 case 60:
+	 case 62:
+      	    result = x * 8;
+	    break;
+	 case 63:
+	    result = x >> 3;
+	    break;
+	 case 64:
+	    result = (x << 4) - x;
+	 case 65:
+	    x *= x;
+	 default:
+	    result = 0x4b + x;
+	    break;
+    }
+    return result;
+}

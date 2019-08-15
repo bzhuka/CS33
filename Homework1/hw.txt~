@@ -1,0 +1,16 @@
+2.71 a.	Because packed_t is unsigned, then the function loses information.
+     b. int xbyte(packed_t word, int bytenum)
+     	{
+	  return (int)(word<<((3-bytenum)<<3))>>24;
+	}
+
+2.82 a. It doesn't always yield one.  IF either x or y were equal to TMin,
+     	then the negative of it would cause it to overflow to Tmin, and if 
+	the other was a negative number, then neither of them would hold.
+     b. Yes, x<<4 = 16x, and (x+y)<<4 = 16x + 16y, so 
+        ((x+y)<<4) + y - x = 17y+15x.
+     c. Yes, -x = ~x + 1.  ~x + ~y + 1 = -x - y - 1.
+        ~(x+y) = -(x+y) -1 = -x - y - 1.
+     d. Yes, signed and two's complement addition both work the same in
+        bit-level stuff.
+     e. Yes, an arithmetic right shift approaches negative infinity.
